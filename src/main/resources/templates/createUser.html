@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="login">Login</a>
+<h1>Create User page</h1>
+
+<form method="POST" th:action="@{/createUser}">
+    <label>
+        Username:
+        <input type="text" name="username" placeholder="username" required min="3" max="15"/>
+        <!--lav fejlhåndtering af hvis en bruger vælger et eksisterende username-->
+    </label><br>
+    <label>
+        Password:
+        <input type="password" name="password" placeholder="password" pattern=".{5,12}"
+               required title="Enter a password between 5 and 12 characters"/>
+        <!--lav retype password-->
+    </label><br>
+    <label>
+        Email:
+        <input type="email" name="email" placeholder="email" required max="25"/>
+    </label><br>
+    <input type="submit" value="Opret Bruger" />
+</form>
+</body>
+</html>
