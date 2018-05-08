@@ -5,6 +5,8 @@ import com.remindlog.repositories.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -20,5 +22,15 @@ public class UserServiceImpl implements UserService {
         user.setEnabled(true);
         user.setRole("USER");
         userRepository.save(user);
+    }
+
+    @Override
+    public User findAUserByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public void deleteAUser(User user) {
+        userRepository.delete(user);
     }
 }
