@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/user/home">Home</a>
+<h1>Create Reminder page</h1>
+
+<form method="POST" th:action="@{/user/createReminder}">
+    <label>Name of note:
+        <input type="text" name="name" placeholder="name" required min="3" max="25"/>
+    </label><br>
+    <label>Note text:
+        <textarea name="description"></textarea>
+    </label><br>
+    <label>Date:
+        <input type="text" name="date" placeholder="date" required max="15"/>
+    </label><br>
+    <label>Time:
+        <input type="text" name="time" placeholder="time" required max="15"/>
+    </label><br>
+
+    <input type="submit" value="Opret Reminder" />
+</form>
+</body>
+</html>
