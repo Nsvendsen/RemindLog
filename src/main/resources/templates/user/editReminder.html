@@ -33,6 +33,10 @@
     <form method="POST" th:action="@{'/user/editReminder/' + ${theReminder.name}}" Newlog="log">
         <ul class="Newlog">
 
+                <!--ID TEST-->
+            <input type="hidden" name="id" class="field-long" th:value="${theReminder.id}"/>
+
+
             <li>
                 <label>Emne<span class="required">*</span></label>
                 <input type="text" name="name" class="field-long" th:value="${theReminder.name}"/>

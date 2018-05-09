@@ -23,4 +23,9 @@ public class ReminderServiceImpl implements ReminderService {
     public void saveAReminder(Reminder reminder) {
         reminderRepository.save(reminder);
     }
+
+    @Override
+    public void deleteReminder(Reminder reminder) {
+        reminderRepository.delete(reminder);
+    }
 }
