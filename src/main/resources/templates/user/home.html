@@ -9,15 +9,15 @@
 </head>
 
 <body>
-<div class="header"></div>
+<!--<div class="header"></div>-->
 <div class="menu-bar">
     <div class="icon-bar">
         <a class="active" href="#"><i class="fa fa-registered"></i></a>
-        <a href="#"><i class="fa fa-bank"></i><p>Home</p></a>
-        <a href="#"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
-        <a href="#"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
+        <a href="/user/home"><i class="fa fa-bank"></i><p>Home</p></a>
+        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
+        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
         <a href="#"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
-        <a href="#"><i class="fa fa-globe"></i><p>Log out</p></a>
+        <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
     </div>
 </div>
 <h1>Velkommen til RemindLog</h1>

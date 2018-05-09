@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>RemindLog - Reminders</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" href="/static/styles/styles.css" th:href="@{/styles/styles.css}"/>
+</head>
+<body>
+<!--<div class="header"></div>-->
+<div class="menu-bar">
+    <div class="icon-bar">
+        <a class="active" href="#"><i class="fa fa-registered"></i></a>
+        <a href="#"><i class="fa fa-bank"></i><p>Home</p></a>
+        <a href="#"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
+        <a href="#"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
+        <a href="#"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
+        <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
+    </div>
+</div>
+
+<div class="content">
+    <div class="button-bar">
+        <a href="#" class="btn">Opret gruppe</a>
+        <a href="#" class="btn">Vælg gruppe</a>
+        <a href="#" class="btn">Vis som liste</a>
+        <a href="#" class="btn">Vis som kalender</a>
+    </div>
+    <h1>Huskeliste</h1>
+    <div class="search">
+        <input type="search" class="light-table-filter" data-table="order-table" placeholder="Skriv søge ord.."/>
+    </div>
+    <div id="huskeliste">
+        <table id="myTable" class="order-table table">
+            <thead>
+            <tr>
+                <th>Emne</th>
+                <th>Dato</th>
+                <th>Tid</th>
+                <th>Note</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="Reminder : ${theReminders}">
+                <td th:text="${Reminder.name}" data-title="Emne"></td>
+                <td th:text="${Reminder.date}" data-title="Dato"></td>
+                <td th:text="${Reminder.time}" data-title="Tid"></td>
+                <td th:text="${Reminder.description}" data-title="Note"></td>
+                <td>
+                    <a href="#" class="btn-data-yellow"><i class="fa fa-bell"></i></a>
+                </td>
+                <td>
+                    <input type="submit" class="btn-data-blue" value="Share" />
+                </td>
+                <td>
+                    <a th:href="@{'/user/editReminder/' + ${Reminder.name}}" class="btn-data">Edit</a>
+                </td>
+                <td>
+                    <input type="submit" class="btn-data-red" value="Slet" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script th:inline="javascript">
+
+        //Søgning
+        (function(document) {
+            'use strict';
+
+            var LightTableFilter = (function(Arr) {
+
+                var _input;
+
+                function _onInputEvent(e) {
+                    _input = e.target;
+                    var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+                    Arr.forEach.call(tables, function(table) {
+                        Arr.forEach.call(table.tBodies, function(tbody) {
+                            Arr.forEach.call(tbody.rows, _filter);
+                        });
+                    });
+                }
+
+                function _filter(row) {
+                    var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+                    row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+                }
+
+                return {
+                    init: function() {
+                        var inputs = document.getElementsByClassName('light-table-filter');
+                        Arr.forEach.call(inputs, function(input) {
+                            input.oninput = _onInputEvent;
+                        });
+                    }
+                };
+            })(Array.prototype);
+
+            document.addEventListener('readystatechange', function() {
+                if (document.readyState === 'complete') {
+                    LightTableFilter.init();
+                }
+            });
+
+        })(document);
+    </script>
+
+</div>
+</body>
+
+<!--<table>-->
+    <!--<thead>-->
+    <!--<tr>-->
+        <!--<th>Name</th>-->
+        <!--<th>Note</th>-->
+        <!--<th>Date</th>-->
+        <!--<th>Time</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tr th:each="Reminder : ${theReminders}">-->
+        <!--<td th:text="${Reminder.name}"></td>-->
+        <!--<td th:text="${Reminder.description}"></td>-->
+        <!--<td th:text="${Reminder.date}"></td>-->
+        <!--<td th:text="${Reminder.time}"></td>-->
+
+        <!--<td>-->
+            <!--<a th:href="@{'/user/editReminder/' + ${Reminder.name}}">Edit</a>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</table>-->
+
+</html>
