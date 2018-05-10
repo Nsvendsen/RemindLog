@@ -19,13 +19,19 @@ public class ReminderServiceImpl implements ReminderService {
         return reminderRepository.findByNameAndUser(name, user);
     }
 
+    //Used to update Reminder
     @Override
     public void saveAReminder(Reminder reminder) {
-        reminderRepository.save(reminder);
+        Reminder reminderToUpdate = reminderRepository.getOne(reminder.getId());
+        reminderToUpdate.setName(reminder.getName());
+        reminderToUpdate.setDescription(reminder.getDescription());
+        reminderToUpdate.setDate(reminder.getDate());
+        reminderToUpdate.setTime(reminder.getTime());
+        reminderRepository.save(reminderToUpdate);
     }
 
     @Override
-    public void deleteReminder(Reminder reminder) {
+    public void deleteReminder(Reminder reminder) { //Is it relevant to delete the Reminder from the user side aswell?
         reminderRepository.delete(reminder);
     }
 }
