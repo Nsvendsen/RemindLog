@@ -24,7 +24,7 @@ public class HomeController {
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     public String createUser(User user){
         userService.createUser(user);
-        return "/createUser";
+        return "/login";
     }
 
     @RequestMapping(value = {"", "/", "/login"})

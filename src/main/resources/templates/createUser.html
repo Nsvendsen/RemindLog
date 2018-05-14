@@ -1,30 +1,69 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<a href="login">Login</a>
-<h1>Create User page</h1>
+    <title>RemindLog - Opret Bruger</title>
 
-<form method="POST" th:action="@{/createUser}">
-    <label>
-        Username:
-        <input type="text" name="username" placeholder="username" required min="3" max="15"/>
-        <!--lav fejlhåndtering af hvis en bruger vælger et eksisterende username-->
-    </label><br>
-    <label>
-        Password:
-        <input type="password" name="password" placeholder="password" pattern=".{5,12}"
-               required title="Enter a password between 5 and 12 characters"/>
-        <!--lav retype password-->
-    </label><br>
-    <label>
-        Email:
-        <input type="email" name="email" placeholder="email" required max="25"/>
-    </label><br>
-    <input type="submit" value="Opret Bruger" />
-</form>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" href="/static/styles/stylesOpretBrugerSite.css" th:href="@{/styles/stylesOpretBrugerSite.css}"/>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <div class="header">
+
+        <div id="logo">Remindlog</div>
+
+    </div>
+
+    <h1>Opret bruger</h1>
+    <h3>Udfyld nedestående felter</h3>
+
+    <!--<p th:if="${loginError}" class="error">Wrong user or password</p>-->
+    <form th:action="@{/createUser}" method="post">
+        <div class="login">
+            <div class="login-screen">
+                <div class="login-form">
+                    <label for="username"> </label>:
+                    <input type="text" class="login-field" id="username" name="username" placeholder="Brugernavn" autofocus="autofocus" />
+                    <label for="email"> </label>:
+                    <input type="text" class="login-field" id="email" name="email" placeholder="Email" autofocus="autofocus" />
+                    <div class="control-group">
+                        <label for="password"> </label>:
+                        <input type="password" class="login-field" id="password" placeholder="Password" name="password" />
+                    </div>
+                    <input type="submit" class="btn" value="Opret bruger" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 </body>
+
+
+<!--<body>-->
+<!--<a href="login">Login</a>-->
+<!--<h1>Create User page</h1>-->
+
+<!--<form method="POST" th:action="@{/createUser}">-->
+    <!--<label>-->
+        <!--Username:-->
+        <!--<input type="text" name="username" placeholder="username" required min="3" max="15"/>-->
+        <!--&lt;!&ndash;lav fejlhåndtering af hvis en bruger vælger et eksisterende username&ndash;&gt;-->
+    <!--</label><br>-->
+    <!--<label>-->
+        <!--Password:-->
+        <!--<input type="password" name="password" placeholder="password" pattern=".{5,12}"-->
+               <!--required title="Enter a password between 5 and 12 characters"/>-->
+        <!--&lt;!&ndash;lav retype password&ndash;&gt;-->
+    <!--</label><br>-->
+    <!--<label>-->
+        <!--Email:-->
+        <!--<input type="email" name="email" placeholder="email" required max="25"/>-->
+    <!--</label><br>-->
+    <!--<input type="submit" value="Opret Bruger" />-->
+<!--</form>-->
+<!--</body>-->
 </html>

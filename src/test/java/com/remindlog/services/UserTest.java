@@ -27,7 +27,7 @@ public class UserTest {
 
     @Test
     public void createUserTest(){
-        //Init user object and set values
+        //Init User object and set values
         User user = new User();
         user.setUsername("test123");
         user.setPassword("hej"); //Test password??
