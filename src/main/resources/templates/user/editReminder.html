@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>RemindLog - Ny Påmindelse</title>
+    <title>RemindLog - Rediger Påmindelse</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
     <link rel="stylesheet" href="/static/styles/styles.css" th:href="@{/styles/styles.css}"/>
 </head>
-
 <body>
+
 <!--<div class="header"></div>-->
 <div class="menu-bar">
     <div class="icon-bar">
@@ -30,32 +30,36 @@
     </div>
     <h1>Ny påmindelse</h1>
 
-    <form method="POST" th:action="@{/user/createReminder}" Newlog="log">
+    <form method="POST" th:action="@{'/user/editReminder/' + ${theReminder.name}}" Newlog="log">
         <ul class="Newlog">
+
+                <!--ID TEST-->
+            <input type="hidden" name="id" class="field-long" th:value="${theReminder.id}"/>
+
 
             <li>
                 <label>Emne<span class="required">*</span></label>
-                <input type="text" name="name" class="field-long" />
+                <input type="text" name="name" class="field-long" th:value="${theReminder.name}"/>
             </li>
             <!--<li>-->
-                <!--<label>Vælg gruppe <span class="required">*</span></label>-->
-                <!--<select name="field5" class="field-select">-->
-                    <!--<option value="gruppe1">Egen huskeliste</option>-->
-                    <!--<option value="gruppe1">Gruppe1</option>-->
-                    <!--<option value="gruppe2">Gruppe2</option>-->
-                <!--</select>-->
+            <!--<label>Vælg gruppe <span class="required">*</span></label>-->
+            <!--<select name="field5" class="field-select">-->
+            <!--<option value="gruppe1">Egen huskeliste</option>-->
+            <!--<option value="gruppe1">Gruppe1</option>-->
+            <!--<option value="gruppe2">Gruppe2</option>-->
+            <!--</select>-->
             <!--</li>-->
             <li>
                 <label>Dato<span class="required">*</span></label>
-                <input id="date" type="date" name="date" class="field-long" />
+                <input id="date" type="date" name="date" class="field-long" th:value="${theReminder.date}"/>
             </li>
             <li>
                 <label>Tid<span class="required">*</span></label>
-                <input id="time" type="time" name="time" class="field-long" />
+                <input id="time" type="time" name="time" class="field-long" th:value="${theReminder.time}"/>
             </li>
             <li>
                 <label>Note (max 400 char.) </label>
-                <textarea name="description" class="field-long field-textarea"></textarea>
+                <textarea name="description" class="field-long field-textarea" th:text="${theReminder.description}"></textarea>
             </li>
             <li>
                 <input type="submit" value="Gem påmindelse" />
@@ -64,26 +68,4 @@
     </form>
 </div>
 </body>
-
-<!--<body>-->
-<!--<a href="/user/home">Home</a>-->
-<!--<h1>Create Reminder page</h1>-->
-
-<!--<form method="POST" th:action="@{/user/createReminder}">-->
-    <!--<label>Name of note:-->
-        <!--<input type="text" name="name" placeholder="name" required min="3" max="25"/>-->
-    <!--</label><br>-->
-    <!--<label>Note text:-->
-        <!--<textarea name="description"></textarea>-->
-    <!--</label><br>-->
-    <!--<label>Date:-->
-        <!--<input type="text" name="date" placeholder="date" required max="15"/>-->
-    <!--</label><br>-->
-    <!--<label>Time:-->
-        <!--<input type="text" name="time" placeholder="time" required max="15"/>-->
-    <!--</label><br>-->
-
-    <!--<input type="submit" value="Opret Reminder" />-->
-<!--</form>-->
-<!--</body>-->
 </html>

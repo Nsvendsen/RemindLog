@@ -1,17 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Reminglog - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" href="/static/styles/stylesLoginSite.css" th:href="@{/styles/stylesLoginSite.css}"/>
+
 </head>
 <body>
-<a href="createUser">Opret Bruger</a>
-<h1>Login page</h1>
 
-<form th:action="@{/login}" method="post">
-    <input type="text" id="username" name="username" placeholder="Brugernavn"/>
-    <input type="password" id="password" placeholder="Password" name="password"/>
-    <input type="submit" value="Log in"/>
-</form>
+<div class="wrapper">
+
+    <div class="header">
+
+        <div id="logo">Remindlog</div>
+
+    </div>
+
+    <h1>Velkommen til Remindlog webapp</h1>
+    <h3>Remindlog er en webapp der gøre det lettere at huske, administrere og gemme påmindelser og dele med andre.</h3>
+
+    <!--<p th:if="${loginError}" class="error">Wrong user or password</p>-->
+    <form th:action="@{/login}" method="post">
+        <div class="login">
+            <div class="login-screen">
+                <div class="app-title">Remindlog log in</div>
+                <div class="login-form">
+                    <label for="username"> </label>:
+                    <input type="text" class="login-field" id="username" name="username" placeholder="Brugernavn" autofocus="autofocus" />
+                    <div class="control-group">
+                        <label for="password"> </label>:
+                        <input type="password" class="login-field" id="password" placeholder="Password" name="password" />
+                    </div>
+                    <input type="submit" class="btn" value="Log in" />
+                    <div class="OpretBruger"><a href="createUser">Opret bruger</a></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 </body>
+
+<!--<body>-->
+<!--<a href="createUser">Opret Bruger</a>-->
+<!--<h1>Login page</h1>-->
+
+<!--<form th:action="@{/login}" method="post">-->
+<!--<input type="text" id="username" name="username" placeholder="Brugernavn"/>-->
+<!--<input type="password" id="password" placeholder="Password" name="password"/>-->
+<!--<input type="submit" value="Log in"/>-->
+<!--</form>-->
+<!--</body>-->
 </html>
