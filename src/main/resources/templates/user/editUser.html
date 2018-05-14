@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>RemindLog - Ny Påmindelse</title>
+    <title>RemindLog - Rediger Bruger</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
     <link rel="stylesheet" href="/static/styles/styles.css" th:href="@{/styles/styles.css}"/>
 </head>
-
 <body>
+
 <!--<div class="header"></div>-->
 <div class="menu-bar">
     <div class="icon-bar">
@@ -20,16 +20,32 @@
         <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
     </div>
 </div>
-<h1>Velkommen til RemindLog</h1>
 
-<!--<div class="content">-->
-    <!--<div class="button-bar">-->
-        <!--<a href="#" class="btn">Rediger påmindelse</a>-->
-        <!--<a href="#" class="btn">Slet påmindelse</a>-->
-        <!--<a href="#" class="btn">Opret gruppe</a>-->
-        <!--<a href="#" class="btn">Vælg gruppe</a>-->
-    <!--</div>-->
-    <!--<h1>Ny påmindelse</h1>-->
+<!--<div class="wrapper">-->
+
+<div class="header">
+
+    <div id="logo">Remindlog</div>
+
+</div>
+
+<h1>Rediger Bruger</h1>
+
+<!--<p th:if="${loginError}" class="error">Wrong user or password</p>-->
+<form th:action="@{/user/editUser}" method="post">
+
+    <!--<input type="hidden" name="id" class="field-long" th:value="${theUser.id}"/>-->
+    <label for="username"> </label>:
+    <input type="text" class="login-field" id="username" name="username" placeholder="Brugernavn" th:value="${theUser.username}" autofocus="autofocus"/>
+    <label for="email"> </label>:
+    <input type="text" class="login-field" id="email" name="email" placeholder="Email" th:value="${theUser.email}" autofocus="autofocus"/>
+    <label for="password"> </label>:
+    <input type="password" class="login-field" id="password" placeholder="Password" name="password"/>
+
+    <input type="submit" class="btn" value="Rediger bruger"/>
+
+</form>
 <!--</div>-->
+
 </body>
 </html>
