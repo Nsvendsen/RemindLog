@@ -9,6 +9,7 @@ public class Reminder { //implements Comparable<Reminder> TEST 1 might fix updat
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    //Name unique?
     private String name;
     private String description; //perhaps rename
 

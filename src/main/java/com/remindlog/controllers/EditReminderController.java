@@ -23,10 +23,11 @@ public class EditReminderController {
         this.reminderService = reminderService;
     }
 
-    @RequestMapping("/user/editReminder/{name}")
-    public String editReminder(@PathVariable String name, Principal principal, Model model){
+    @RequestMapping("/user/editReminder/{id}") //{name}
+    public String editReminder(@PathVariable Long id, Principal principal, Model model){
         User theUser = userService.findAUserByUsername(principal.getName());
-        Reminder reminder = reminderService.findAReminderByNameAndUser(name, theUser); //Really bad since name has to be unique for every user, find alternative solution
+//        Reminder reminder = reminderService.findAReminderByNameAndUser(name, theUser); //Really bad since name has to be unique for every user, find alternative solution
+        Reminder reminder = reminderService.findAReminderById(id); //Find reminder by ID alternative???
         model.addAttribute("theReminder", reminder);
         return "/user/editReminder";
     }
