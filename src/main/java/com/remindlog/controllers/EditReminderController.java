@@ -32,16 +32,9 @@ public class EditReminderController {
         return "/user/editReminder";
     }
 
-    @RequestMapping(value = "/user/editReminder/{name}", method = RequestMethod.POST) //pathvariable might not be needed
-    public String editReminder(@PathVariable String name, Reminder reminder){
-//        User theUser = userService.findAUserByUsername(principal.getName());
-////        model.addAttribute("theReminder", reminder);
-//        reminderService.deleteReminder(reminderService.findAReminderByNameAndUser(name, theUser)); //test
-//        theUser.addReminder(reminder);
-//        userService.saveAUser(theUser);
-////        reminderService.saveAReminder(reminder);
-
-        reminderService.saveAReminder(reminder);
+    @RequestMapping(value = "/user/editReminder", method = RequestMethod.POST) //pathvariable might not be needed. /{name}
+    public String editReminder(Reminder reminder){ //@PathVariable String name,
+        reminderService.editReminder(reminder);
         return "redirect:/user/viewReminders";
     }
 }

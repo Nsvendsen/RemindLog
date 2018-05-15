@@ -36,11 +36,11 @@
 
     <!--<input type="hidden" name="id" class="field-long" th:value="${theUser.id}"/>-->
     <label for="username"> </label>:
-    <input type="text" class="login-field" id="username" name="username" placeholder="Brugernavn" th:value="${theUser.username}" autofocus="autofocus"/>
+    <input type="text" class="login-field" id="username" name="username" max="25" placeholder="Brugernavn" th:value="${theUser.username}" autofocus="autofocus"/>
     <label for="email"> </label>:
-    <input type="text" class="login-field" id="email" name="email" placeholder="Email" th:value="${theUser.email}" autofocus="autofocus"/>
+    <input type="email" class="login-field" id="email" name="email" max="35" placeholder="Email" th:value="${theUser.email}" autofocus="autofocus"/>
     <label for="password"> </label>:
-    <input type="password" class="login-field" id="password" placeholder="Password" name="password"/>
+    <input type="password" class="login-field" id="password" min="5" max="25" placeholder="Password" name="password"/>
 
     <input type="submit" class="btn" value="Rediger bruger"/>
 

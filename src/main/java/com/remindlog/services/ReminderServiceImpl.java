@@ -28,7 +28,7 @@ public class ReminderServiceImpl implements ReminderService {
 
     //Used to update Reminder
     @Override
-    public void saveAReminder(Reminder reminder) {
+    public void editReminder(Reminder reminder) {
         Reminder reminderToUpdate = reminderRepository.getOne(reminder.getId());
         reminderToUpdate.setName(reminder.getName());
         reminderToUpdate.setDescription(reminder.getDescription());

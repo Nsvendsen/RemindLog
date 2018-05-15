@@ -11,7 +11,8 @@ public class Reminder { //implements Comparable<Reminder> TEST 1 might fix updat
 
     //Name unique?
     private String name;
-    private String description; //perhaps rename
+    @Lob //might cause problem
+    private String description;
 
     private String date;
     private String time;

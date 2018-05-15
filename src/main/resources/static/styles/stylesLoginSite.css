@@ -140,7 +140,8 @@ h1 {
     font-size: 52px;
     line-height: 52px;
     text-align: center;
-    color: #FFF;
+    color: rgba(2, 111, 235, 0.71);
+    /*color: #FFF;*/
     font-family: 'Bree Serif', 'serif';
     text-align:center;
 }
@@ -157,7 +158,8 @@ h3 {
     font-size: 20px;
     line-height: 24px;
     text-align: center;
-    color: #FFF;
+    color: rgba(2, 111, 235, 0.71);
+    /*color: #FFF;*/
 }
 
 h3 a {
