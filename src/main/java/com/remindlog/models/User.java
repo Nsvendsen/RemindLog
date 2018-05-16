@@ -1,6 +1,7 @@
 package com.remindlog.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,6 +23,13 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<Reminder> reminders;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL) //TEST cascade = CascadeType.ALL
+    @JoinTable(
+            name="user_sharegroups",
+            joinColumns=@JoinColumn(name="user_id"),
+            inverseJoinColumns=@JoinColumn(name="sharegroup_id"))
+    private List<ShareGroup> shareGroups; //instantiate?
 
     public String getUsername() {
         return username;
@@ -87,5 +95,23 @@ public class User {
 
     public Long getId() {
         return id;
+    }
+
+    public List<ShareGroup> getShareGroups() {
+        return shareGroups;
+    }
+
+    public void setShareGroups(List<ShareGroup> shareGroups) {
+        this.shareGroups = shareGroups;
+    }
+
+    //Might cause error
+    public void createShareGroup(ShareGroup shareGroup){
+        List<User> users = new ArrayList<>();
+        users.add(this);
+//        shareGroup.getUserList().add(this);
+        shareGroup.setUserList(users);
+        shareGroup.setFounder(this);
+        this.shareGroups.add(shareGroup);
     }
 }

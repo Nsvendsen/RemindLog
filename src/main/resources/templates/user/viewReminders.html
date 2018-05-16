@@ -22,7 +22,7 @@
 
 <div class="content">
     <div class="button-bar">
-        <a href="#" class="btn">Opret gruppe</a>
+        <a href="/user/createShareGroup" class="btn">Opret gruppe</a>
         <a href="#" class="btn">Vælg gruppe</a>
         <a href="#" class="btn">Vis som liste</a>
         <a href="#" class="btn">Vis som kalender</a>
@@ -65,7 +65,7 @@
                 <td>
                     <!--<input type="submit" class="btn-data-red" value="Slet" />-->
                     <a th:href="@{'/user/deleteReminder/' + ${Reminder.id}}">
-                        <input type="button" value="Slet" class="btn-data">
+                        <input type="button" onclick="return confirm('Er du sikker?')" value="Slet" class="btn-data">
                     </a>
                 </td>
             </tr>
