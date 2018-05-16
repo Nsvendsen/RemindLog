@@ -23,24 +23,18 @@ public class EditReminderController {
         this.reminderService = reminderService;
     }
 
-    @RequestMapping("/user/editReminder/{name}")
-    public String editReminder(@PathVariable String name, Principal principal, Model model){
-        User theUser = userService.findAUserByUsername(principal.getName());
-        Reminder reminder = reminderService.findAReminderByNameAndUser(name, theUser); //Really bad since name has to be unique for every user, find alternative solution
+    @RequestMapping("/user/editReminder/{id}") //{name}
+    public String editReminder(@PathVariable Long id, Principal principal, Model model){
+        User theUser = userService.findAUserByUsername(principal.getName()); //redundant?
+//        Reminder reminder = reminderService.findAReminderByNameAndUser(name, theUser); //Really bad since name has to be unique for every user, find alternative solution
+        Reminder reminder = reminderService.findAReminderById(id); //Find reminder by ID alternative???
         model.addAttribute("theReminder", reminder);
         return "/user/editReminder";
     }
 
-    @RequestMapping(value = "/user/editReminder/{name}", method = RequestMethod.POST) //pathvariable might not be needed
-    public String editReminder(@PathVariable String name, Reminder reminder){
-//        User theUser = userService.findAUserByUsername(principal.getName());
-////        model.addAttribute("theReminder", reminder);
-//        reminderService.deleteReminder(reminderService.findAReminderByNameAndUser(name, theUser)); //test
-//        theUser.addReminder(reminder);
-//        userService.saveAUser(theUser);
-////        reminderService.saveAReminder(reminder);
-
-        reminderService.saveAReminder(reminder);
+    @RequestMapping(value = "/user/editReminder", method = RequestMethod.POST) //pathvariable might not be needed. /{name}
+    public String editReminder(Reminder reminder){ //@PathVariable String name,
+        reminderService.editReminder(reminder);
         return "redirect:/user/viewReminders";
     }
 }

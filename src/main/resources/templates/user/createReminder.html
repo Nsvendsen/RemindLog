@@ -16,13 +16,14 @@
         <a href="/user/home"><i class="fa fa-bank"></i><p>Home</p></a>
         <a href="/user/createReminder"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
         <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
-        <a href="#"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
+        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
         <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
     </div>
 </div>
 
 <div class="content">
     <div class="button-bar">
+        <!--Vurder om disse knapper er nødvendige, ellers skal der være en side med f.eks. slet hvor den manuelt indtastes-->
         <a href="#" class="btn">Rediger påmindelse</a>
         <a href="#" class="btn">Slet påmindelse</a>
         <a href="#" class="btn">Opret gruppe</a>
@@ -35,7 +36,7 @@
 
             <li>
                 <label>Emne<span class="required">*</span></label>
-                <input type="text" name="name" class="field-long" />
+                <input type="text" name="name" class="field-long" max="50"/>
             </li>
             <!--<li>-->
                 <!--<label>Vælg gruppe <span class="required">*</span></label>-->
@@ -55,7 +56,7 @@
             </li>
             <li>
                 <label>Note (max 400 char.) </label>
-                <textarea name="description" class="field-long field-textarea"></textarea>
+                <textarea name="description" class="field-long field-textarea" maxlength="400"></textarea>
             </li>
             <li>
                 <input type="submit" value="Gem påmindelse" />
