@@ -16,7 +16,7 @@
         <a href="/user/home"><i class="fa fa-bank"></i><p>Home</p></a>
         <a href="/user/createReminder"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
         <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
-        <a href="#"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
+        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
         <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
     </div>
 </div>
@@ -30,16 +30,16 @@
     </div>
     <h1>Ny påmindelse</h1>
 
-    <form method="POST" th:action="@{'/user/editReminder/' + ${theReminder.name}}" Newlog="log">
+    <!--<form method="POST" th:action="@{'/user/editReminder/' + ${theReminder.name}}" Newlog="log">-->
+    <form method="POST" th:action="@{/user/editReminder}" Newlog="log">
         <ul class="Newlog">
 
                 <!--ID TEST-->
             <input type="hidden" name="id" class="field-long" th:value="${theReminder.id}"/>
 
-
             <li>
                 <label>Emne<span class="required">*</span></label>
-                <input type="text" name="name" class="field-long" th:value="${theReminder.name}"/>
+                <input type="text" name="name" class="field-long" th:value="${theReminder.name}" min="50"/>
             </li>
             <!--<li>-->
             <!--<label>Vælg gruppe <span class="required">*</span></label>-->
@@ -59,7 +59,7 @@
             </li>
             <li>
                 <label>Note (max 400 char.) </label>
-                <textarea name="description" class="field-long field-textarea" th:text="${theReminder.description}"></textarea>
+                <textarea name="description" class="field-long field-textarea" maxlength="400" th:text="${theReminder.description}"></textarea>
             </li>
             <li>
                 <input type="submit" value="Gem påmindelse" />

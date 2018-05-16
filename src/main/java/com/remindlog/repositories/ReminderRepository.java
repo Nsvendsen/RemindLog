@@ -5,5 +5,6 @@ import com.remindlog.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ReminderRepository extends JpaRepository<Reminder, Long> {
-    Reminder findByNameAndUser(String name, User user);
+//    Reminder findByNameAndUser(String name, User user);
+    void deleteById(Long id);
 }

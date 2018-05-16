@@ -84,4 +84,8 @@ public class User {
         reminder.setUser(this);
         this.reminders.add(reminder);
     }
+
+    public Long getId() {
+        return id;
+    }
 }

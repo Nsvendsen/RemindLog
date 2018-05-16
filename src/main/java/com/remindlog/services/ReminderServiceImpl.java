@@ -14,14 +14,21 @@ public class ReminderServiceImpl implements ReminderService {
         this.reminderRepository = reminderRepository;
     }
 
+//    @Override
+//    public Reminder findAReminderByNameAndUser(String name, User user) {
+//        return reminderRepository.findByNameAndUser(name, user);
+//    }
+
+
     @Override
-    public Reminder findAReminderByNameAndUser(String name, User user) {
-        return reminderRepository.findByNameAndUser(name, user);
+    public Reminder findAReminderById(Long id) {
+//        return reminderRepository.findById(id);
+        return reminderRepository.getOne(id);
     }
 
     //Used to update Reminder
     @Override
-    public void saveAReminder(Reminder reminder) {
+    public void editReminder(Reminder reminder) {
         Reminder reminderToUpdate = reminderRepository.getOne(reminder.getId());
         reminderToUpdate.setName(reminder.getName());
         reminderToUpdate.setDescription(reminder.getDescription());
@@ -30,8 +37,13 @@ public class ReminderServiceImpl implements ReminderService {
         reminderRepository.save(reminderToUpdate);
     }
 
+//    @Override
+//    public void deleteReminder(Reminder reminder) { //Is it relevant to delete the Reminder from the user side aswell?
+//        reminderRepository.delete(reminder);
+//    }
+
     @Override
-    public void deleteReminder(Reminder reminder) { //Is it relevant to delete the Reminder from the user side aswell?
-        reminderRepository.delete(reminder);
+    public void deleteReminderById(Long id) {
+        reminderRepository.deleteById(id);
     }
 }

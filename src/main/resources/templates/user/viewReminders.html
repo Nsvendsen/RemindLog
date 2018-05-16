@@ -15,7 +15,7 @@
         <a href="/user/home"><i class="fa fa-bank"></i><p>Home</p></a>
         <a href="/user/createReminder"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
         <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
-        <a href="#"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
+        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
         <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
     </div>
 </div>
@@ -57,14 +57,16 @@
                 </td>
                 <td>
                     <!--TEST new solution to fix missing CSS on button-->
-                    <a th:href="@{'/user/editReminder/' + ${Reminder.name}}">
-                        <!--Pathvariable might not be needed, consider removing-->
+                    <a th:href="@{'/user/editReminder/' + ${Reminder.id}}">
                         <input type="button" value="Edit" class="btn-data">
                     </a>
                     <!--<a th:href="@{'/user/editReminder/' + ${Reminder.name}}" class="btn-data">Edit</a>-->
                 </td>
                 <td>
-                    <input type="submit" class="btn-data-red" value="Slet" />
+                    <!--<input type="submit" class="btn-data-red" value="Slet" />-->
+                    <a th:href="@{'/user/deleteReminder/' + ${Reminder.id}}">
+                        <input type="button" value="Slet" class="btn-data">
+                    </a>
                 </td>
             </tr>
             </tbody>
