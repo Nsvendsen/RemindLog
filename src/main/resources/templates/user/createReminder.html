@@ -38,14 +38,18 @@
                 <label>Emne<span class="required">*</span></label>
                 <input type="text" name="name" class="field-long" max="50"/>
             </li>
-            <!--<li>-->
-                <!--<label>Vælg gruppe <span class="required">*</span></label>-->
-                <!--<select name="field5" class="field-select">-->
-                    <!--<option value="gruppe1">Egen huskeliste</option>-->
-                    <!--<option value="gruppe1">Gruppe1</option>-->
-                    <!--<option value="gruppe2">Gruppe2</option>-->
-                <!--</select>-->
-            <!--</li>-->
+            <li>
+                <label>Vælg gruppe <span class="required">*</span></label>
+                <select name="shareGroupId" class="field-select">
+                    <!--<option th:value="null">None</option>-->
+                    <option label=" " th:value="null"></option>
+                    <!--Muligvis slet th:value="null"-->
+                    <!--value i none skal være en long...-->
+                    <option th:each="ShareGroup : ${shareGroups}"
+                            th:value="${ShareGroup.id}"
+                            th:text="${ShareGroup.name}"></option>
+                </select>
+            </li>
             <li>
                 <label>Dato<span class="required">*</span></label>
                 <input id="date" type="date" name="date" class="field-long" />

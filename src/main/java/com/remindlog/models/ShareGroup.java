@@ -29,6 +29,10 @@ public class ShareGroup {
         setFounder(user);
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }

@@ -49,8 +49,11 @@ public class UserServiceImpl implements UserService {
 //        User userToUpdate = userRepository.getOne(userFromFrontend.getId());
         userToUpdate.setUsername(userFromFrontend.getUsername());
         userToUpdate.setEmail(userFromFrontend.getEmail());
-        if (userFromFrontend.getPassword() != null && userFromFrontend.getPassword().length() <= 25) // bad practice. Alternatively make to forms?
-            userToUpdate.setPassword(new BCryptPasswordEncoder().encode(userFromFrontend.getPassword())); //problem if user does not change password?
+        System.out.println("Password Test" + userFromFrontend.getPassword()); //TEST DELETE!
+        if (userFromFrontend.getPassword() != null && userFromFrontend.getPassword().length() <= 25) {// bad practice. Alternatively make to forms?
+            System.out.println("TEST"); //TEST DELETE!
+            userToUpdate.setPassword(new BCryptPasswordEncoder().encode(userFromFrontend.getPassword()));
+        }//problem if user does not change password?
         userRepository.save(userToUpdate);
     }
 }
