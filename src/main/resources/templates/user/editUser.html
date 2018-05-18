@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>RemindLog - Rediger Bruger</title>
+    <title>RemindLog - Edit User</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
@@ -14,32 +14,32 @@
     <div class="icon-bar">
         <a class="active" href="#"><i class="fa fa-registered"></i></a>
         <a href="/user/home"><i class="fa fa-bank"></i><p>Home</p></a>
-        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
-        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
-        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
+        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>New Reminder</p></a>
+        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Reminderlist</p></a>
+        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Edit User</p></a>
         <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
     </div>
 </div>
 
 <div class="content">
-    <h1>Rediger Bruger</h1>
+    <h1>Edit User</h1>
 
     <form method="POST" th:action="@{/user/editUser}" Newlog="log">
         <ul class="Newlog">
             <li>
-                <label>Brugernavn<span></span></label>
-                <input type="text" name="username" class="field-long" max="25" th:value="${theUser.username}"/>
+                <label>Username<span></span></label>
+                <input type="text" name="username" class="field-long" min="4" max="25" th:value="${theUser.username}"/>
             </li>
             <li>
                 <label>Email<span></span></label>
-                <input type="email" name="email" class="field-long" max="35" th:value="${theUser.email}"/>
+                <input type="email" name="email" class="field-long" min="4" max="35" th:value="${theUser.email}"/>
             </li>
             <li>
                 <label>Password<span></span></label>
                 <input type="password" name="password" class="field-long" min="5" max="25" th:value="null"/>
             </li>
             <li>
-                <input type="submit" value="Opdater Bruger" />
+                <input type="submit" value="Edit" />
             </li>
         </ul>
     </form>

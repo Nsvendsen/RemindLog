@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>RemindLog - Opret Delingsgruppe</title>
+    <title>RemindLog - New ShareGroup</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
@@ -13,25 +13,25 @@
     <div class="icon-bar">
         <a class="active" href="#"><i class="fa fa-registered"></i></a>
         <a href="/user/home"><i class="fa fa-bank"></i><p>Home</p></a>
-        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
-        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
-        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
+        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>New Reminder</p></a>
+        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Reminderlist</p></a>
+        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Edit User</p></a>
         <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
     </div>
 </div>
 
 <div class="content">
-    <h1>Opret Delingsgruppe</h1>
+    <h1>New ShareGroup</h1>
 
     <form method="POST" th:action="@{/user/createShareGroup}" Newlog="log">
         <ul class="Newlog">
 
             <li>
-                <label>Navn<span class="required">*</span></label>
-                <input type="text" name="name" class="field-long" max="30"/>
+                <label>Name<span class="required">*</span></label>
+                <input type="text" name="name" class="field-long" min="1" max="30"/>
             </li>
             <li>
-                <input type="submit" value="Opret" />
+                <input type="submit" value="Create" />
             </li>
         </ul>
     </form>
