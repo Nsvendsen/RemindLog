@@ -11,7 +11,7 @@ public class ReminderPost {
     private String dateTimeCreate;
     private String dateTimeEdit;
 
-    //Point of this POJO, bad practice way to get the shareGroupId from frontend.
+    //Point of this POJO, bad practice way to get the shareGroupId from frontend. Alternativly use pathvariable?
     private Long shareGroupId;
 
     public String getName() {

@@ -41,13 +41,13 @@ public class CreateReminderController {
         User theUser = userService.findAUserByUsername(principal.getName());
 
         model.addAttribute("shareGroups", theUser.getShareGroups());//Choose sharegroup in dropdown list
-        //ERROR hvis brugeren vælger none i frontend! BAD PRACTICE
+        //ERROR if user picks none in frontend! BAD PRACTICE
         ShareGroup shareGroup;
         if (reminderPost.getShareGroupId() == null)
             shareGroup = new ShareGroup();
         else
             shareGroup = shareGroupService.findShareGroupById(reminderPost.getShareGroupId());
-        //Laver unødvendige SQL statements af ukendt årsag...
+        //Makes unnecessary SQL statements for unknown reason.
         theUser.addReminder(reminderService.convertReminder(reminderPost, shareGroup));
 
 //        theUser.addReminder(reminder);
