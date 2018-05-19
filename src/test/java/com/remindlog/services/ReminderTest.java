@@ -38,8 +38,9 @@ public class ReminderTest {
         reminder.setTime("15:00");
 
         //Add Reminder to User object and save to database
-        user.addReminder(reminder);
-        userService.saveAUser(user);
+        User userFromDatabase = userService.findAUserByUsername(user.getUsername());
+        userFromDatabase.addReminder(reminder);
+        userService.saveAUser(userFromDatabase);
 
         //Find Reminder in database
         Reminder testReminder = user.getReminders().get(0);

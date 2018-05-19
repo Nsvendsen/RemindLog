@@ -68,6 +68,7 @@ body {
         line-height: 32px;
         text-align: center;
         color: #FFF;
+        text-shadow: 2px 2px #555;
         font-family: 'Bree Serif', 'serif';
         text-align:center;
     }
@@ -85,6 +86,7 @@ body {
         line-height: 17px;
         text-align: center;
         color: #FFF;
+        text-shadow: 2px 2px #555;
     }
 
     h3 a {
@@ -140,8 +142,9 @@ h1 {
     font-size: 52px;
     line-height: 52px;
     text-align: center;
-    color: rgba(2, 111, 235, 0.71);
-    /*color: #FFF;*/
+    /*color: rgba(2, 111, 235, 0.71);*/
+    color: #FFF;
+    text-shadow: 2px 2px #555;
     font-family: 'Bree Serif', 'serif';
     text-align:center;
 }
@@ -158,8 +161,9 @@ h3 {
     font-size: 20px;
     line-height: 24px;
     text-align: center;
-    color: rgba(2, 111, 235, 0.71);
-    /*color: #FFF;*/
+    /*color: rgba(2, 111, 235, 0.71);*/
+    color: #FFF;
+    text-shadow: 2px 2px #555;
 }
 
 h3 a {

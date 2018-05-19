@@ -12,4 +12,5 @@ public interface UserService {
     void saveAUser(User user);
     User findAUserByUsername(String username);
     void editUser(User userFromFrontend, User theUser);
+//    void editPassword(User UserFromFrontend, User user);
 }

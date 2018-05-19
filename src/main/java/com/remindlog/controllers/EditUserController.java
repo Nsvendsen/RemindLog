@@ -29,6 +29,6 @@ public class EditUserController {
     public String editUserController(User user, Principal principal){
         User theUser = userService.findAUserByUsername(principal.getName());
         userService.editUser(user, theUser);
-        return "/user/home";
+        return "redirect:/logout"; //"/user/home"
     }
 }

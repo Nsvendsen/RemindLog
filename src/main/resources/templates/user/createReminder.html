@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>RemindLog - Ny Påmindelse</title>
+    <title>RemindLog - New Reminder</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
@@ -14,9 +14,9 @@
     <div class="icon-bar">
         <a class="active" href="#"><i class="fa fa-registered"></i></a>
         <a href="/user/home"><i class="fa fa-bank"></i><p>Home</p></a>
-        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
-        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
-        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
+        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>New Reminder</p></a>
+        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Reminderlist</p></a>
+        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Edit User</p></a>
         <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
     </div>
 </div>
@@ -24,34 +24,38 @@
 <div class="content">
     <div class="button-bar">
         <!--Vurder om disse knapper er nødvendige, ellers skal der være en side med f.eks. slet hvor den manuelt indtastes-->
-        <a href="#" class="btn">Rediger påmindelse</a>
-        <a href="#" class="btn">Slet påmindelse</a>
-        <a href="#" class="btn">Opret gruppe</a>
-        <a href="#" class="btn">Vælg gruppe</a>
+        <a href="#" class="btn">Edit Reminder</a>
+        <a href="#" class="btn">Delete Reminder</a>
+        <a href="/user/createShareGroup" class="btn">Create ShareGroup</a>
+        <a href="#" class="btn">Choose ShareGroup</a>
     </div>
-    <h1>Ny påmindelse</h1>
+    <h1>New Reminder</h1>
 
     <form method="POST" th:action="@{/user/createReminder}" Newlog="log">
         <ul class="Newlog">
 
             <li>
-                <label>Emne<span class="required">*</span></label>
-                <input type="text" name="name" class="field-long" max="50"/>
+                <label>Title<span class="required">*</span></label>
+                <input type="text" name="name" class="field-long" min="1" max="50"/>
             </li>
-            <!--<li>-->
-                <!--<label>Vælg gruppe <span class="required">*</span></label>-->
-                <!--<select name="field5" class="field-select">-->
-                    <!--<option value="gruppe1">Egen huskeliste</option>-->
-                    <!--<option value="gruppe1">Gruppe1</option>-->
-                    <!--<option value="gruppe2">Gruppe2</option>-->
-                <!--</select>-->
-            <!--</li>-->
             <li>
-                <label>Dato<span class="required">*</span></label>
+                <label>Choose ShareGroup <span class="required">*</span></label>
+                <select name="shareGroupId" class="field-select">
+                    <!--<option th:value="null">None</option>-->
+                    <option label=" " th:value="null"></option>
+                    <!--Muligvis slet th:value="null"-->
+                    <!--value i none skal være en long...-->
+                    <option th:each="ShareGroup : ${shareGroups}"
+                            th:value="${ShareGroup.id}"
+                            th:text="${ShareGroup.name}"></option>
+                </select>
+            </li>
+            <li>
+                <label>Date<span class="required">*</span></label>
                 <input id="date" type="date" name="date" class="field-long" />
             </li>
             <li>
-                <label>Tid<span class="required">*</span></label>
+                <label>Time<span class="required">*</span></label>
                 <input id="time" type="time" name="time" class="field-long" />
             </li>
             <li>
@@ -59,7 +63,7 @@
                 <textarea name="description" class="field-long field-textarea" maxlength="400"></textarea>
             </li>
             <li>
-                <input type="submit" value="Gem påmindelse" />
+                <input type="submit" value="Save Reminder" />
             </li>
         </ul>
     </form>

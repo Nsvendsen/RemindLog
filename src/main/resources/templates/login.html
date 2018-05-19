@@ -17,8 +17,8 @@
 
     </div>
 
-    <h1>Velkommen til Remindlog webapp</h1>
-    <h3>Remindlog er en webapp der gøre det lettere at huske, administrere og gemme påmindelser og dele med andre.</h3>
+    <h1>Welcome to RemindLog webapp</h1>
+    <h3>Remindlog is a webapp that makes it easier to remember, administrate and save reminders(and share with others).</h3>
 
     <!--<p th:if="${loginError}" class="error">Wrong user or password</p>-->
     <form th:action="@{/login}" method="post">
@@ -27,13 +27,13 @@
                 <div class="app-title">Remindlog log in</div>
                 <div class="login-form">
                     <label for="username"> </label>:
-                    <input type="text" class="login-field" id="username" name="username" max="25" placeholder="Brugernavn" autofocus="autofocus" />
+                    <input type="text" class="login-field" id="username" name="username" max="25" placeholder="Username" autofocus="autofocus" />
                     <div class="control-group">
                         <label for="password"> </label>:
                         <input type="password" class="login-field" id="password" max="25" placeholder="Password" name="password" />
                     </div>
                     <input type="submit" class="btn" value="Log in" />
-                    <div class="OpretBruger"><a href="createUser">Opret bruger</a></div>
+                    <div class="OpretBruger"><a href="createUser">Create User</a></div>
                 </div>
             </div>
         </div>
