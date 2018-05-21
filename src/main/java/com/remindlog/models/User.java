@@ -15,11 +15,14 @@ public class User {
     private String username;
     private String password;
 
+    @Transient
+    private String passwordVal; //password check
+
     @Column(unique = true)
     private String email;
     private String role;
     private boolean enabled;
-    private int phoneNumber;
+//    private int phoneNumber;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<Reminder> reminders;
@@ -71,13 +74,13 @@ public class User {
         this.enabled = enabled;
     }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+//    public int getPhoneNumber() {
+//        return phoneNumber;
+//    }
+//
+//    public void setPhoneNumber(int phoneNumber) {
+//        this.phoneNumber = phoneNumber;
+//    }
 
     public List<Reminder> getReminders() {
         return reminders;
@@ -113,5 +116,13 @@ public class User {
         shareGroup.setUserList(users);
         shareGroup.setFounder(this);
         this.shareGroups.add(shareGroup);
+    }
+
+    public String getPasswordVal() {
+        return passwordVal;
+    }
+
+    public void setPasswordVal(String passwordVal) {
+        this.passwordVal = passwordVal;
     }
 }

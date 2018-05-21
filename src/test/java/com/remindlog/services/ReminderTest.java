@@ -25,7 +25,7 @@ public class ReminderTest {
         user.setUsername("test123");
         user.setPassword("hej");
         user.setEmail("test@123.dk");
-        user.setPhoneNumber(11111111);
+//        user.setPhoneNumber(11111111);
 
         //Insert User in database
         userService.createUser(user);
