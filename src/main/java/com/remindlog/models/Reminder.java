@@ -21,6 +21,10 @@ public class Reminder { //implements Comparable<Reminder> TEST 1 might fix updat
     @JoinColumn(name = "user_id")
     private User user; //User who wrote the reminder
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sharegroup_id") //test
+    private ShareGroup shareGroup;
+
     //Perhaps delete getter and setter for id
     public Long getId() {
         return id;
@@ -70,7 +74,15 @@ public class Reminder { //implements Comparable<Reminder> TEST 1 might fix updat
         this.user = user;
     }
 
-//    //TEST 1 might fix updating
+    public ShareGroup getShareGroup() {
+        return shareGroup;
+    }
+
+    public void setShareGroup(ShareGroup shareGroup) {
+        this.shareGroup = shareGroup;
+    }
+
+    //    //TEST 1 might fix updating
 //    @Override
 //    public int compareTo(Reminder reminder){
 //        return this.getId().compareTo(reminder.getId());

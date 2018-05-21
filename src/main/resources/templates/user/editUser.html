@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>RemindLog - Rediger Bruger</title>
+    <title>RemindLog - Edit User</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"/>
@@ -14,38 +14,59 @@
     <div class="icon-bar">
         <a class="active" href="#"><i class="fa fa-registered"></i></a>
         <a href="/user/home"><i class="fa fa-bank"></i><p>Home</p></a>
-        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
-        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
-        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
+        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>New Reminder</p></a>
+        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Reminderlist</p></a>
+        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Edit User</p></a>
         <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
     </div>
 </div>
 
-<!--<div class="wrapper">-->
+<div class="content">
+    <h1>Edit User</h1>
 
-<div class="header">
-
-    <div id="logo">Remindlog</div>
-
+    <form method="POST" th:action="@{/user/editUser}" Newlog="log">
+        <ul class="Newlog">
+            <li>
+                <label>Username<span></span></label>
+                <input type="text" name="username" class="field-long" min="4" max="25" th:value="${theUser.username}"/>
+            </li>
+            <li>
+                <label>Email<span></span></label>
+                <input type="email" name="email" class="field-long" min="4" max="35" th:value="${theUser.email}"/>
+            </li>
+            <li>
+                <label>Password<span></span></label>
+                <input type="password" name="password" class="field-long" min="5" max="25" th:value="null"/>
+            </li>
+            <li>
+                <input type="submit" value="Edit" />
+            </li>
+        </ul>
+    </form>
 </div>
 
-<h1>Rediger Bruger</h1>
+<!--<div class="header">-->
 
-<!--<p th:if="${loginError}" class="error">Wrong user or password</p>-->
-<form th:action="@{/user/editUser}" method="post">
+    <!--<div id="logo">Remindlog</div>-->
 
-    <!--<input type="hidden" name="id" class="field-long" th:value="${theUser.id}"/>-->
-    <label for="username"> </label>:
-    <input type="text" class="login-field" id="username" name="username" max="25" placeholder="Brugernavn" th:value="${theUser.username}" autofocus="autofocus"/>
-    <label for="email"> </label>:
-    <input type="email" class="login-field" id="email" name="email" max="35" placeholder="Email" th:value="${theUser.email}" autofocus="autofocus"/>
-    <label for="password"> </label>:
-    <input type="password" class="login-field" id="password" min="5" max="25" placeholder="Password" name="password"/>
-
-    <input type="submit" class="btn" value="Rediger bruger"/>
-
-</form>
 <!--</div>-->
+
+<!--<h1>Rediger Bruger</h1>-->
+
+<!--&lt;!&ndash;<p th:if="${loginError}" class="error">Wrong user or password</p>&ndash;&gt;-->
+<!--<form th:action="@{/user/editUser}" method="post">-->
+
+    <!--&lt;!&ndash;<input type="hidden" name="id" class="field-long" th:value="${theUser.id}"/>&ndash;&gt;-->
+    <!--<label for="username"> </label>:-->
+    <!--<input type="text" class="login-field" id="username" name="username" max="25" placeholder="Brugernavn" th:value="${theUser.username}" autofocus="autofocus"/>-->
+    <!--<label for="email"> </label>:-->
+    <!--<input type="email" class="login-field" id="email" name="email" max="35" placeholder="Email" th:value="${theUser.email}" autofocus="autofocus"/>-->
+    <!--<label for="password"> </label>:-->
+    <!--<input type="password" class="login-field" id="password" min="5" max="25" placeholder="Password" name="password"/>-->
+
+    <!--<input type="submit" class="btn" value="Rediger bruger"/>-->
+
+<!--</form>-->
 
 </body>
 </html>

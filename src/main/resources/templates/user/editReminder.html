@@ -14,21 +14,21 @@
     <div class="icon-bar">
         <a class="active" href="#"><i class="fa fa-registered"></i></a>
         <a href="/user/home"><i class="fa fa-bank"></i><p>Home</p></a>
-        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>Ny påmindelse</p></a>
-        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Vis huskeliste</p></a>
-        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Rediger bruger</p></a>
+        <a href="/user/createReminder"><i class="fa fa-plus"></i><p>New Reminder</p></a>
+        <a href="/user/viewReminders"><i class="fa fa-eye"></i><p>Reminderlist</p></a>
+        <a href="/user/editUser"><i class="fa fa-wrench"></i><p>Edit User</p></a>
         <a th:href="@{/logout}"><i class="fa fa-globe"></i><p>Log out</p></a>
     </div>
 </div>
 
 <div class="content">
     <div class="button-bar">
-        <a href="#" class="btn">Rediger påmindelse</a>
-        <a href="#" class="btn">Slet påmindelse</a>
-        <a href="#" class="btn">Opret gruppe</a>
-        <a href="#" class="btn">Vælg gruppe</a>
+        <a href="#" class="btn">Edit Reminder</a>
+        <a href="#" class="btn">Delete Reminder</a>
+        <a href="/user/createShareGroup" class="btn">New ShareGroup</a>
+        <a href="#" class="btn">Choose ShareGroup</a>
     </div>
-    <h1>Ny påmindelse</h1>
+    <h1>New Reminder</h1>
 
     <!--<form method="POST" th:action="@{'/user/editReminder/' + ${theReminder.name}}" Newlog="log">-->
     <form method="POST" th:action="@{/user/editReminder}" Newlog="log">
@@ -38,8 +38,8 @@
             <input type="hidden" name="id" class="field-long" th:value="${theReminder.id}"/>
 
             <li>
-                <label>Emne<span class="required">*</span></label>
-                <input type="text" name="name" class="field-long" th:value="${theReminder.name}" min="50"/>
+                <label>Title<span class="required">*</span></label>
+                <input type="text" name="name" class="field-long" th:value="${theReminder.name}" min="1" max="50"/>
             </li>
             <!--<li>-->
             <!--<label>Vælg gruppe <span class="required">*</span></label>-->
@@ -50,11 +50,11 @@
             <!--</select>-->
             <!--</li>-->
             <li>
-                <label>Dato<span class="required">*</span></label>
+                <label>Date<span class="required">*</span></label>
                 <input id="date" type="date" name="date" class="field-long" th:value="${theReminder.date}"/>
             </li>
             <li>
-                <label>Tid<span class="required">*</span></label>
+                <label>Time<span class="required">*</span></label>
                 <input id="time" type="time" name="time" class="field-long" th:value="${theReminder.time}"/>
             </li>
             <li>
@@ -62,7 +62,7 @@
                 <textarea name="description" class="field-long field-textarea" maxlength="400" th:text="${theReminder.description}"></textarea>
             </li>
             <li>
-                <input type="submit" value="Gem påmindelse" />
+                <input type="submit" value="Save Reminder" />
             </li>
         </ul>
     </form>
