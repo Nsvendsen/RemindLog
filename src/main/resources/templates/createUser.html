@@ -27,12 +27,17 @@
             <div class="login-screen">
                 <div class="login-form">
                     <label for="username"> </label>:
-                    <input type="text" class="login-field" id="username" name="username" min="4" max="25" placeholder="Username" autofocus="autofocus" />
+                    <input type="text" class="login-field" required id="username" name="username" min="4" max="25" placeholder="Username" autofocus="autofocus" />
                     <label for="email"> </label>:
-                    <input type="email" class="login-field" id="email" name="email" min="4" max="35" placeholder="Email" autofocus="autofocus" />
+                    <input type="email" class="login-field" required id="email" name="email" min="4" max="35" placeholder="Email" autofocus="autofocus" />
                     <div class="control-group">
                         <label for="password"> </label>:
-                        <input type="password" class="login-field" id="password" min="5" max="25" placeholder="Password" name="password" />
+                        <input type="password" class="login-field"  required id="password" min="5" max="25" placeholder="Password" name="password" />
+                    </div>
+                    <!--TEST-->
+                    <div class="control-group">
+                        <label for="password"> </label>:
+                        <input type="password" class="login-field"  required min="5" max="25" placeholder="Password" name="passwordVal" />
                     </div>
                     <input type="submit" class="btn" value="Create User" />
                 </div>
@@ -42,28 +47,4 @@
 </div>
 </body>
 
-
-<!--<body>-->
-<!--<a href="login">Login</a>-->
-<!--<h1>Create User page</h1>-->
-
-<!--<form method="POST" th:action="@{/createUser}">-->
-    <!--<label>-->
-        <!--Username:-->
-        <!--<input type="text" name="username" placeholder="username" required min="3" max="15"/>-->
-        <!--&lt;!&ndash;lav fejlhåndtering af hvis en bruger vælger et eksisterende username&ndash;&gt;-->
-    <!--</label><br>-->
-    <!--<label>-->
-        <!--Password:-->
-        <!--<input type="password" name="password" placeholder="password" pattern=".{5,12}"-->
-               <!--required title="Enter a password between 5 and 12 characters"/>-->
-        <!--&lt;!&ndash;lav retype password&ndash;&gt;-->
-    <!--</label><br>-->
-    <!--<label>-->
-        <!--Email:-->
-        <!--<input type="email" name="email" placeholder="email" required max="25"/>-->
-    <!--</label><br>-->
-    <!--<input type="submit" value="Opret Bruger" />-->
-<!--</form>-->
-<!--</body>-->
 </html>

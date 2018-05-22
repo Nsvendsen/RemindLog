@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class viewCalendar {
+public class ViewCalendar {
 
     @RequestMapping("/user/viewCalendar")
     public String viewCalendar(){
